@@ -1,10 +1,22 @@
 import asyncio
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
+from pathlib import Path
 
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="ag-grid-demo API", version="0.1.0")
+from api.db.engine import init_db
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    Path("data").mkdir(exist_ok=True)
+    await init_db()
+    yield
+
+
+app = FastAPI(title="ag-grid-demo API", version="0.1.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,

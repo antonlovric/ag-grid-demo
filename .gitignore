@@ -28,3 +28,8 @@ build/
 .env
 .env.local
 .env.*.local
+
+# SQLite
+apps/api/data/*.db
+apps/api/data/*.db-shm
+apps/api/data/*.db-wal
