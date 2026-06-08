@@ -1,0 +1,30 @@
+# Node
+node_modules/
+.pnpm-store/
+dist/
+.turbo/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+*.egg-info/
+.eggs/
+build/
+*.dist-info/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env
+.env
+.env.local
+.env.*.local
