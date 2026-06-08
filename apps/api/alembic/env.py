@@ -8,8 +8,17 @@ from sqlmodel import SQLModel
 
 from api.core.config import settings
 
-# Import models here so their tables are registered with SQLModel.metadata
-# Example: from api.models.user import User
+# Import all models so their tables are registered with SQLModel.metadata
+from api.models import (  # noqa: F401
+    Counterparty,
+    Instrument,
+    MarketDataSnapshot,
+    Order,
+    Portfolio,
+    Position,
+    Trade,
+    Trader,
+)
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.DATABASE_URL)

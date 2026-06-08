@@ -7,6 +7,16 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.db.engine import init_db
+from api.models import (  # noqa: F401 — registers all tables with SQLModel.metadata
+    Counterparty,
+    Instrument,
+    MarketDataSnapshot,
+    Order,
+    Portfolio,
+    Position,
+    Trade,
+    Trader,
+)
 
 
 @asynccontextmanager
