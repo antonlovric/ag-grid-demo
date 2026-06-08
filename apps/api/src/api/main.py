@@ -17,6 +17,7 @@ from api.models import (  # noqa: F401 — registers all tables with SQLModel.me
     Trade,
     Trader,
 )
+from api.routers.trades import router as trades_router
 
 
 @asynccontextmanager
@@ -27,6 +28,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="ag-grid-demo API", version="0.1.0", lifespan=lifespan)
+app.include_router(trades_router)
 
 app.add_middleware(
     CORSMiddleware,
